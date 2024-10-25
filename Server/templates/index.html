@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Smart Dustbin Status</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav>
+      <div class="logo">
+        <a href="#">Smart-bin</a>
+      </div>
+      <ul class="nav-links">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+      <h1>Garbage Levels in Nashik Temples</h1>
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Timestamp</th>
+              <th>Garbage Level (%)</th>
+            </tr>
+          </thead>
+          <tbody id="statusTable">
+            {% for status in statuses %}
+            <tr>
+              <td>{{ status.timestamp }}</td>
+              <td>{{ status.level }}%</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      <p>&copy; 2024 Smart Dustbin System. All rights reserved.</p>
+    </footer>
+
+    <script>
+      async function fetchGarbageStatus() {
+        try {
+          const response = await fetch("/garbage-status");
+          const data = await response.json();
+          const statusTable = document.getElementById("statusTable");
+          statusTable.innerHTML = "";
+
+          if (data.status === "success") {
+            data.data.forEach((item) => {
+              const row = `<tr><td>${item.timestamp}</td><td>${item.level}%</td></tr>`;
+              statusTable.innerHTML += row;
+            });
+          } else {
+            statusTable.innerHTML = `<tr><td colspan="2">Error fetching data</td></tr>`;
+          }
+        } catch (error) {
+          console.error("Error:", error);
+          const statusTable = document.getElementById("statusTable");
+          statusTable.innerHTML = `<tr><td colspan="2">Error fetching data</td></tr>`;
+        }
+      }
+
+      fetchGarbageStatus();
+      setInterval(fetchGarbageStatus, 60000);
+    </script>
+  </body>
+</html>
