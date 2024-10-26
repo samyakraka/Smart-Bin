@@ -5,7 +5,7 @@ import os
 from datetime import datetime
 
 # Configuration
-SERIAL_PORT = 'COM3'  # Replace with your Arduino's COM port
+SERIAL_PORT = 'COM8'  #Replace with your Arduino's COM port
 BAUD_RATE = 9600
 DATA_FILE = 'data/garbage_data.json'
 
