@@ -1,8 +1,8 @@
 #include <Arduino.h>
 
 // Ultrasonic sensor pins
-const int trigPin = 9;
-const int echoPin = 10;
+const int trigPin = 9; //Mark this trigPin
+const int echoPin = 10; //Mark this echoPin
 
 // Maximum distance the sensor can measure (in cm)
 const int maxDistance = 50;
