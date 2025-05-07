@@ -79,7 +79,7 @@ def garbage_status():
 
 if __name__ == '__main__':
     # Get port from environment variable or default to 5000
-    port = int(os.environ.get('PORT', 5000))
+    port = int(os.environ.get('PORT', 5001))
     # In production, you might want to use 0.0.0.0 to listen on all interfaces
     host = os.environ.get('HOST', '0.0.0.0')
     app.logger.info(f"Starting application on {host}:{port}")
