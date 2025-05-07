@@ -2,7 +2,10 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
     <title>Smart Dustbin Status</title>
     <link
       rel="stylesheet"
@@ -10,9 +13,14 @@
       href="{{ url_for('static', filename='style.css') }}"
     />
     <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   </head>
   <body>
     <!-- Navbar -->
@@ -21,72 +29,429 @@
         <a href="#">Smart-bin</a>
       </div>
       <ul class="nav-links">
-        <li><a href="#">Home</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Contact</a></li>
-        
+        <li><a href="/home">Home</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/contact">Contact</a></li>
+        <li><a href="/" class="active">Dashboard</a></li>
       </ul>
     </nav>
 
     <!-- Main Content -->
-    <div class="container">
-      <h1>Garbage Levels in Nashik Temples</h1>
-      <div class="table-wrapper">
-        <table>
-          <thead>
-            <tr>
-              <th>Timestamp</th>
-              <th>Garbage Level (%)</th>
-            </tr>
-          </thead>
-          <tbody id="statusTable">
-            {% for status in statuses %}
-            <tr>
-              <td>{{ status.timestamp }}</td>
-              <td>{{ status.level }}%</td>
-            </tr>
-            {% endfor %}
-          </tbody>
-        </table>
+    <div class="dashboard-container">
+      <div class="dashboard-header">
+        <h1>Garbage Monitoring Dashboard</h1>
+        <p>Real-time waste levels at Nashik temples and pilgrimage sites</p>
+      </div>
+
+      <!-- Filter Controls -->
+      <div class="filter-section">
+        <div class="filter-group">
+          <label for="templeFilter">Select Temple:</label>
+          <select id="templeFilter" class="filter-select">
+            <option value="all">All Temples</option>
+            <option value="1">Kalaram Mandir</option>
+            <option value="2">Kapaleshwar Mahadev Mandir</option>
+            <option value="3">Shree Navshya Ganpati Mandir</option>
+            <option value="4">BAPS Shri Swaminarayan Mandir</option>
+            <option value="5">Trimbakeshwar Jyotirling Temple</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <label>Level Filter:</label>
+          <div class="level-filters">
+            <label class="filter-checkbox">
+              <input
+                type="checkbox"
+                value="normal"
+                class="level-filter"
+                checked
+              />
+              Normal (&lt; 50%)
+            </label>
+            <label class="filter-checkbox">
+              <input
+                type="checkbox"
+                value="warning"
+                class="level-filter"
+                checked
+              />
+              Warning (50-79%)
+            </label>
+            <label class="filter-checkbox">
+              <input
+                type="checkbox"
+                value="critical"
+                class="level-filter"
+                checked
+              />
+              Critical (≥ 80%)
+            </label>
+          </div>
+        </div>
+        <button id="applyFilters" class="btn btn-primary">Apply Filters</button>
+      </div>
+
+      <!-- Summary Cards -->
+      <div class="summary-cards">
+        <div class="summary-card">
+          <div class="summary-icon">
+            <i class="fas fa-trash-alt"></i>
+          </div>
+          <div class="summary-info">
+            <h3>Latest Reading</h3>
+            <p id="latestReading">Loading...</p>
+          </div>
+        </div>
+        <div class="summary-card">
+          <div class="summary-icon">
+            <i class="fas fa-exclamation-triangle"></i>
+          </div>
+          <div class="summary-info">
+            <h3>Bins Over 80%</h3>
+            <p id="highLevelBins">Calculating...</p>
+          </div>
+        </div>
+        <div class="summary-card">
+          <div class="summary-icon">
+            <i class="fas fa-clock"></i>
+          </div>
+          <div class="summary-info">
+            <h3>Last Updated</h3>
+            <p id="lastUpdated">Fetching...</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Chart Section -->
+      <div class="chart-section">
+        <div class="chart-container">
+          <canvas id="garbageLevelChart"></canvas>
+        </div>
+      </div>
+
+      <!-- Data Table -->
+      <div class="table-container">
+        <h2>Garbage Level History</h2>
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>Temple</th>
+                <th>Timestamp</th>
+                <th>Garbage Level (%)</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody id="statusTable">
+              {% for status in statuses %}
+              <tr>
+                <td>{{ status.temple_name }}</td>
+                <td>{{ status.timestamp }}</td>
+                <td>{{ status.level }}%</td>
+                <td>
+                  {% if status.level < 50 %}
+                  <span class="status-badge normal">Normal</span>
+                  {% elif status.level < 80 %}
+                  <span class="status-badge warning">Warning</span>
+                  {% else %}
+                  <span class="status-badge critical">Critical</span>
+                  {% endif %}
+                </td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
 
     <!-- Footer -->
-    <!-- Footer -->
-<footer>
-  <p>&copy; 2024 Smart Dustbin System. All rights reserved.</p>
-  <ul>
-    <li><a href="#">Privacy Policy</a></li>
-    <li><a href="#">Terms of Service</a></li>
-    <li><a href="#">Help</a></li>
-  </ul>
-</footer>
+    <footer>
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Smart-Bin</h3>
+          <p>A project for Nashik Municipal Corporation</p>
+        </div>
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="/home">Home</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/contact">Contact</a></li>
+            <li><a href="/">Dashboard</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Contact Us</h3>
+          <p>Email: info@smart-bin.com</p>
+          <p>Phone: (91) 1234567890</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 Smart Dustbin System. All rights reserved.</p>
+      </div>
+    </footer>
 
     <script>
+      let chart;
+      let allData = []; // Store all data for filtering
+
+      // Temple colors for chart
+      const templeColors = {
+        1: {
+          borderColor: "#4caf50",
+          backgroundColor: "rgba(76, 175, 80, 0.2)",
+        },
+        2: {
+          borderColor: "#f44336",
+          backgroundColor: "rgba(244, 67, 54, 0.2)",
+        },
+        3: {
+          borderColor: "#2196f3",
+          backgroundColor: "rgba(33, 150, 243, 0.2)",
+        },
+        4: {
+          borderColor: "#ff9800",
+          backgroundColor: "rgba(255, 152, 0, 0.2)",
+        },
+        5: {
+          borderColor: "#9c27b0",
+          backgroundColor: "rgba(156, 39, 176, 0.2)",
+        },
+      };
+
+      // Temple names mapping
+      const templeNames = {
+        1: "Kalaram Mandir",
+        2: "Kapaleshwar Mahadev Mandir",
+        3: "Shree Navshya Ganpati Mandir",
+        4: "BAPS Shri Swaminarayan Mandir",
+        5: "Trimbakeshwar Jyotirling Temple",
+      };
+
       async function fetchGarbageStatus() {
         try {
           const response = await fetch("/garbage-status");
           const data = await response.json();
-          const statusTable = document.getElementById("statusTable");
-          statusTable.innerHTML = "";
 
           if (data.status === "success") {
-            data.data.forEach((item) => {
-              const row = `<tr><td>${item.timestamp}</td><td>${item.level}%</td></tr>`;
-              statusTable.innerHTML += row;
-            });
+            allData = data.data; // Store all data
+            applyFiltersAndUpdateUI();
           } else {
-            statusTable.innerHTML = `<tr><td colspan="2">Error fetching data</td></tr>`;
+            const statusTable = document.getElementById("statusTable");
+            statusTable.innerHTML = `<tr><td colspan="4">Error fetching data</td></tr>`;
           }
         } catch (error) {
           console.error("Error:", error);
           const statusTable = document.getElementById("statusTable");
-          statusTable.innerHTML = `<tr><td colspan="2">Error fetching data</td></tr>`;
+          statusTable.innerHTML = `<tr><td colspan="4">Error fetching data</td></tr>`;
         }
       }
 
+      function applyFiltersAndUpdateUI() {
+        const templeFilter = document.getElementById("templeFilter").value;
+        const levelFilters = Array.from(
+          document.querySelectorAll(".level-filter:checked")
+        ).map((checkbox) => checkbox.value);
+
+        // Filter data based on selections
+        let filteredData = [...allData];
+
+        // Apply temple filter if not "all"
+        if (templeFilter !== "all") {
+          filteredData = filteredData.filter(
+            (item) => item.temple_id.toString() === templeFilter
+          );
+        }
+
+        // Apply level filters
+        if (!levelFilters.includes("normal")) {
+          filteredData = filteredData.filter((item) => item.level >= 50);
+        }
+        if (!levelFilters.includes("warning")) {
+          filteredData = filteredData.filter(
+            (item) => item.level < 50 || item.level >= 80
+          );
+        }
+        if (!levelFilters.includes("critical")) {
+          filteredData = filteredData.filter((item) => item.level < 80);
+        }
+
+        updateSummaryCards(filteredData);
+        updateTable(filteredData);
+        updateChart(allData, templeFilter); // Chart always shows all temples with optional highlighting
+      }
+
+      function updateSummaryCards(data) {
+        if (data && data.length > 0) {
+          const latest = data[0];
+          document.getElementById(
+            "latestReading"
+          ).textContent = `${latest.level}%`;
+          document.getElementById("lastUpdated").textContent = latest.timestamp;
+
+          const highLevelCount = data.filter((item) => item.level >= 80).length;
+          document.getElementById(
+            "highLevelBins"
+          ).textContent = `${highLevelCount} bin(s)`;
+        } else {
+          document.getElementById("latestReading").textContent = "No data";
+          document.getElementById("lastUpdated").textContent = "N/A";
+          document.getElementById("highLevelBins").textContent = "0 bin(s)";
+        }
+      }
+
+      function updateTable(data) {
+        const statusTable = document.getElementById("statusTable");
+        statusTable.innerHTML = "";
+
+        data.forEach((item) => {
+          let statusClass =
+            item.level < 50
+              ? "normal"
+              : item.level < 80
+              ? "warning"
+              : "critical";
+          let statusText =
+            item.level < 50
+              ? "Normal"
+              : item.level < 80
+              ? "Warning"
+              : "Critical";
+
+          const row = `<tr>
+            <td>${item.temple_name}</td>
+            <td>${item.timestamp}</td>
+            <td>${item.level}%</td>
+            <td><span class="status-badge ${statusClass}">${statusText}</span></td>
+          </tr>`;
+          statusTable.innerHTML += row;
+        });
+
+        if (data.length === 0) {
+          statusTable.innerHTML = `<tr><td colspan="4">No data matches the selected filters</td></tr>`;
+        }
+      }
+
+      function updateChart(data, templeFilter) {
+        const ctx = document
+          .getElementById("garbageLevelChart")
+          .getContext("2d");
+
+        // Group data by temple
+        const templeData = {};
+        for (let i = 1; i <= 5; i++) {
+          templeData[i] = data
+            .filter((item) => item.temple_id === i)
+            .sort((a, b) => new Date(a.timestamp) - new Date(b.timestamp));
+        }
+
+        // Create datasets for chart
+        const datasets = [];
+        for (let templeId = 1; templeId <= 5; templeId++) {
+          if (templeFilter === "all" || templeFilter === templeId.toString()) {
+            const temple = templeData[templeId];
+
+            if (temple && temple.length > 0) {
+              datasets.push({
+                label: templeNames[templeId],
+                data: temple.map((item) => item.level),
+                borderColor: templeColors[templeId].borderColor,
+                backgroundColor: templeColors[templeId].backgroundColor,
+                borderWidth: templeId.toString() === templeFilter ? 3 : 2,
+                tension: 0.4,
+                pointRadius: templeId.toString() === templeFilter ? 4 : 3,
+                pointBackgroundColor: templeColors[templeId].borderColor,
+              });
+            }
+          }
+        }
+
+        // Get timestamps for x-axis (use timestamps from any temple with data)
+        let labels = [];
+        for (let templeId = 1; templeId <= 5; templeId++) {
+          if (templeData[templeId] && templeData[templeId].length > 0) {
+            labels = templeData[templeId].map((item) => item.timestamp);
+            break;
+          }
+        }
+
+        if (chart) {
+          chart.data.labels = labels;
+          chart.data.datasets = datasets;
+          chart.update();
+        } else {
+          chart = new Chart(ctx, {
+            type: "line",
+            data: {
+              labels: labels,
+              datasets: datasets,
+            },
+            options: {
+              responsive: true,
+              maintainAspectRatio: false,
+              scales: {
+                y: {
+                  beginAtZero: true,
+                  max: 100,
+                  title: {
+                    display: true,
+                    text: "Fill Level (%)",
+                  },
+                },
+                x: {
+                  title: {
+                    display: true,
+                    text: "Time",
+                  },
+                  ticks: {
+                    maxTicksLimit: 8,
+                    maxRotation: 45,
+                    minRotation: 45,
+                  },
+                },
+              },
+              plugins: {
+                legend: {
+                  display: true,
+                  position: window.innerWidth < 768 ? "bottom" : "top",
+                },
+                tooltip: {
+                  bodyFont: {
+                    size: window.innerWidth < 768 ? 10 : 12,
+                  },
+                  titleFont: {
+                    size: window.innerWidth < 768 ? 10 : 12,
+                  },
+                },
+              },
+            },
+          });
+        }
+      }
+
+      // Event listeners
+      document
+        .getElementById("applyFilters")
+        .addEventListener("click", applyFiltersAndUpdateUI);
+
+      // Adjust chart on window resize
+      window.addEventListener("resize", function () {
+        if (
+          chart &&
+          chart.options &&
+          chart.options.plugins &&
+          chart.options.plugins.legend
+        ) {
+          chart.options.plugins.legend.position =
+            window.innerWidth < 768 ? "bottom" : "top";
+          chart.update();
+        }
+      });
+
+      // Initial fetch and setup
       fetchGarbageStatus();
-      setInterval(fetchGarbageStatus, 60000);
+      setInterval(fetchGarbageStatus, 60000); // Refresh every minute
     </script>
   </body>
 </html>
