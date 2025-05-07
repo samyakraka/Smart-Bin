@@ -1,34 +1,452 @@
 [
-    {
-        "timestamp": "2024-10-16 14:43:12",
-        "level": 0
-    },
-    {
-        "timestamp": "2024-10-16 14:43:21",
-        "level": 0
-    },
-    {
-        "timestamp": "2024-10-16 14:43:31",
-        "level": 0
-    },
-    {
-        "timestamp": "2024-10-16 14:43:41",
-        "level": 76
-    },
-    {
-        "timestamp": "2024-10-16 14:43:51",
-        "level": 88
-    },
-    {
-        "timestamp": "2024-10-16 14:45:25",
-        "level": 0
-    },
-    {
-        "timestamp": "2024-10-16 14:45:34",
-        "level": 92
-    },
-    {
-        "timestamp": "2024-10-16 14:45:44",
-        "level": 0
-    }
+  {
+    "temple_id": 1,
+    "temple_name": "Kalaram Mandir",
+    "timestamp": "2024-10-16 08:15:22",
+    "level": 45
+  },
+  {
+    "temple_id": 1,
+    "temple_name": "Kalaram Mandir",
+    "timestamp": "2024-10-16 10:30:15",
+    "level": 62
+  },
+  {
+    "temple_id": 1,
+    "temple_name": "Kalaram Mandir",
+    "timestamp": "2024-10-16 12:45:37",
+    "level": 78
+  },
+  {
+    "temple_id": 1,
+    "temple_name": "Kalaram Mandir",
+    "timestamp": "2024-10-16 14:20:05",
+    "level": 85
+  },
+  {
+    "temple_id": 1,
+    "temple_name": "Kalaram Mandir",
+    "timestamp": "2024-10-16 16:05:48",
+    "level": 92
+  },
+  {
+    "temple_id": 1,
+    "temple_name": "Kalaram Mandir",
+    "timestamp": "2024-10-16 18:30:11",
+    "level": 25
+  },
+  {
+    "temple_id": 1,
+    "temple_name": "Kalaram Mandir",
+    "timestamp": "2024-10-16 20:15:33",
+    "level": 38
+  },
+  {
+    "temple_id": 1,
+    "temple_name": "Kalaram Mandir",
+    "timestamp": "2024-10-16 22:40:19",
+    "level": 55
+  },
+  {
+    "temple_id": 1,
+    "temple_name": "Kalaram Mandir",
+    "timestamp": "2024-10-17 00:10:27",
+    "level": 67
+  },
+  {
+    "temple_id": 1,
+    "temple_name": "Kalaram Mandir",
+    "timestamp": "2024-10-17 02:25:41",
+    "level": 72
+  },
+  {
+    "temple_id": 1,
+    "temple_name": "Kalaram Mandir",
+    "timestamp": "2024-10-17 04:35:16",
+    "level": 85
+  },
+  {
+    "temple_id": 1,
+    "temple_name": "Kalaram Mandir",
+    "timestamp": "2024-10-17 06:50:09",
+    "level": 33
+  },
+  {
+    "temple_id": 1,
+    "temple_name": "Kalaram Mandir",
+    "timestamp": "2024-10-17 08:20:54",
+    "level": 48
+  },
+  {
+    "temple_id": 1,
+    "temple_name": "Kalaram Mandir",
+    "timestamp": "2024-10-17 10:40:22",
+    "level": 61
+  },
+  {
+    "temple_id": 1,
+    "temple_name": "Kalaram Mandir",
+    "timestamp": "2024-10-17 12:15:37",
+    "level": 75
+  },
+  {
+    "temple_id": 2,
+    "temple_name": "Kapaleshwar Mahadev Mandir",
+    "timestamp": "2024-10-16 07:25:12",
+    "level": 23
+  },
+  {
+    "temple_id": 2,
+    "temple_name": "Kapaleshwar Mahadev Mandir",
+    "timestamp": "2024-10-16 09:40:35",
+    "level": 37
+  },
+  {
+    "temple_id": 2,
+    "temple_name": "Kapaleshwar Mahadev Mandir",
+    "timestamp": "2024-10-16 11:55:18",
+    "level": 52
+  },
+  {
+    "temple_id": 2,
+    "temple_name": "Kapaleshwar Mahadev Mandir",
+    "timestamp": "2024-10-16 13:15:43",
+    "level": 68
+  },
+  {
+    "temple_id": 2,
+    "temple_name": "Kapaleshwar Mahadev Mandir",
+    "timestamp": "2024-10-16 15:30:29",
+    "level": 76
+  },
+  {
+    "temple_id": 2,
+    "temple_name": "Kapaleshwar Mahadev Mandir",
+    "timestamp": "2024-10-16 17:45:51",
+    "level": 88
+  },
+  {
+    "temple_id": 2,
+    "temple_name": "Kapaleshwar Mahadev Mandir",
+    "timestamp": "2024-10-16 19:20:07",
+    "level": 42
+  },
+  {
+    "temple_id": 2,
+    "temple_name": "Kapaleshwar Mahadev Mandir",
+    "timestamp": "2024-10-16 21:30:45",
+    "level": 56
+  },
+  {
+    "temple_id": 2,
+    "temple_name": "Kapaleshwar Mahadev Mandir",
+    "timestamp": "2024-10-16 23:50:32",
+    "level": 69
+  },
+  {
+    "temple_id": 2,
+    "temple_name": "Kapaleshwar Mahadev Mandir",
+    "timestamp": "2024-10-17 01:15:19",
+    "level": 82
+  },
+  {
+    "temple_id": 2,
+    "temple_name": "Kapaleshwar Mahadev Mandir",
+    "timestamp": "2024-10-17 03:30:48",
+    "level": 90
+  },
+  {
+    "temple_id": 2,
+    "temple_name": "Kapaleshwar Mahadev Mandir",
+    "timestamp": "2024-10-17 05:45:21",
+    "level": 21
+  },
+  {
+    "temple_id": 2,
+    "temple_name": "Kapaleshwar Mahadev Mandir",
+    "timestamp": "2024-10-17 07:20:14",
+    "level": 35
+  },
+  {
+    "temple_id": 2,
+    "temple_name": "Kapaleshwar Mahadev Mandir",
+    "timestamp": "2024-10-17 09:40:58",
+    "level": 49
+  },
+  {
+    "temple_id": 2,
+    "temple_name": "Kapaleshwar Mahadev Mandir",
+    "timestamp": "2024-10-17 11:55:32",
+    "level": 63
+  },
+  {
+    "temple_id": 3,
+    "temple_name": "Shree Navshya Ganpati Mandir",
+    "timestamp": "2024-10-16 08:05:43",
+    "level": 28
+  },
+  {
+    "temple_id": 3,
+    "temple_name": "Shree Navshya Ganpati Mandir",
+    "timestamp": "2024-10-16 10:20:27",
+    "level": 41
+  },
+  {
+    "temple_id": 3,
+    "temple_name": "Shree Navshya Ganpati Mandir",
+    "timestamp": "2024-10-16 12:35:19",
+    "level": 57
+  },
+  {
+    "temple_id": 3,
+    "temple_name": "Shree Navshya Ganpati Mandir",
+    "timestamp": "2024-10-16 14:50:36",
+    "level": 72
+  },
+  {
+    "temple_id": 3,
+    "temple_name": "Shree Navshya Ganpati Mandir",
+    "timestamp": "2024-10-16 16:15:52",
+    "level": 81
+  },
+  {
+    "temple_id": 3,
+    "temple_name": "Shree Navshya Ganpati Mandir",
+    "timestamp": "2024-10-16 18:25:17",
+    "level": 94
+  },
+  {
+    "temple_id": 3,
+    "temple_name": "Shree Navshya Ganpati Mandir",
+    "timestamp": "2024-10-16 20:40:33",
+    "level": 30
+  },
+  {
+    "temple_id": 3,
+    "temple_name": "Shree Navshya Ganpati Mandir",
+    "timestamp": "2024-10-16 22:10:48",
+    "level": 43
+  },
+  {
+    "temple_id": 3,
+    "temple_name": "Shree Navshya Ganpati Mandir",
+    "timestamp": "2024-10-17 00:25:27",
+    "level": 58
+  },
+  {
+    "temple_id": 3,
+    "temple_name": "Shree Navshya Ganpati Mandir",
+    "timestamp": "2024-10-17 02:40:15",
+    "level": 71
+  },
+  {
+    "temple_id": 3,
+    "temple_name": "Shree Navshya Ganpati Mandir",
+    "timestamp": "2024-10-17 04:15:39",
+    "level": 84
+  },
+  {
+    "temple_id": 3,
+    "temple_name": "Shree Navshya Ganpati Mandir",
+    "timestamp": "2024-10-17 06:30:22",
+    "level": 95
+  },
+  {
+    "temple_id": 3,
+    "temple_name": "Shree Navshya Ganpati Mandir",
+    "timestamp": "2024-10-17 08:45:11",
+    "level": 26
+  },
+  {
+    "temple_id": 3,
+    "temple_name": "Shree Navshya Ganpati Mandir",
+    "timestamp": "2024-10-17 10:15:44",
+    "level": 39
+  },
+  {
+    "temple_id": 3,
+    "temple_name": "Shree Navshya Ganpati Mandir",
+    "timestamp": "2024-10-17 12:30:29",
+    "level": 54
+  },
+  {
+    "temple_id": 4,
+    "temple_name": "BAPS Shri Swaminarayan Mandir",
+    "timestamp": "2024-10-16 07:50:24",
+    "level": 18
+  },
+  {
+    "temple_id": 4,
+    "temple_name": "BAPS Shri Swaminarayan Mandir",
+    "timestamp": "2024-10-16 09:10:53",
+    "level": 31
+  },
+  {
+    "temple_id": 4,
+    "temple_name": "BAPS Shri Swaminarayan Mandir",
+    "timestamp": "2024-10-16 11:25:17",
+    "level": 46
+  },
+  {
+    "temple_id": 4,
+    "temple_name": "BAPS Shri Swaminarayan Mandir",
+    "timestamp": "2024-10-16 13:40:42",
+    "level": 59
+  },
+  {
+    "temple_id": 4,
+    "temple_name": "BAPS Shri Swaminarayan Mandir",
+    "timestamp": "2024-10-16 15:55:28",
+    "level": 74
+  },
+  {
+    "temple_id": 4,
+    "temple_name": "BAPS Shri Swaminarayan Mandir",
+    "timestamp": "2024-10-16 17:20:51",
+    "level": 86
+  },
+  {
+    "temple_id": 4,
+    "temple_name": "BAPS Shri Swaminarayan Mandir",
+    "timestamp": "2024-10-16 19:35:19",
+    "level": 97
+  },
+  {
+    "temple_id": 4,
+    "temple_name": "BAPS Shri Swaminarayan Mandir",
+    "timestamp": "2024-10-16 21:50:33",
+    "level": 27
+  },
+  {
+    "temple_id": 4,
+    "temple_name": "BAPS Shri Swaminarayan Mandir",
+    "timestamp": "2024-10-16 23:20:47",
+    "level": 40
+  },
+  {
+    "temple_id": 4,
+    "temple_name": "BAPS Shri Swaminarayan Mandir",
+    "timestamp": "2024-10-17 01:35:24",
+    "level": 53
+  },
+  {
+    "temple_id": 4,
+    "temple_name": "BAPS Shri Swaminarayan Mandir",
+    "timestamp": "2024-10-17 03:50:12",
+    "level": 68
+  },
+  {
+    "temple_id": 4,
+    "temple_name": "BAPS Shri Swaminarayan Mandir",
+    "timestamp": "2024-10-17 05:15:39",
+    "level": 79
+  },
+  {
+    "temple_id": 4,
+    "temple_name": "BAPS Shri Swaminarayan Mandir",
+    "timestamp": "2024-10-17 07:30:21",
+    "level": 91
+  },
+  {
+    "temple_id": 4,
+    "temple_name": "BAPS Shri Swaminarayan Mandir",
+    "timestamp": "2024-10-17 09:45:16",
+    "level": 22
+  },
+  {
+    "temple_id": 4,
+    "temple_name": "BAPS Shri Swaminarayan Mandir",
+    "timestamp": "2024-10-17 11:15:53",
+    "level": 36
+  },
+  {
+    "temple_id": 5,
+    "temple_name": "Trimbakeshwar Jyotirling Temple",
+    "timestamp": "2024-10-16 08:35:18",
+    "level": 32
+  },
+  {
+    "temple_id": 5,
+    "temple_name": "Trimbakeshwar Jyotirling Temple",
+    "timestamp": "2024-10-16 10:50:42",
+    "level": 47
+  },
+  {
+    "temple_id": 5,
+    "temple_name": "Trimbakeshwar Jyotirling Temple",
+    "timestamp": "2024-10-16 12:15:29",
+    "level": 60
+  },
+  {
+    "temple_id": 5,
+    "temple_name": "Trimbakeshwar Jyotirling Temple",
+    "timestamp": "2024-10-16 14:30:13",
+    "level": 73
+  },
+  {
+    "temple_id": 5,
+    "temple_name": "Trimbakeshwar Jyotirling Temple",
+    "timestamp": "2024-10-16 16:45:38",
+    "level": 87
+  },
+  {
+    "temple_id": 5,
+    "temple_name": "Trimbakeshwar Jyotirling Temple",
+    "timestamp": "2024-10-16 18:15:25",
+    "level": 96
+  },
+  {
+    "temple_id": 5,
+    "temple_name": "Trimbakeshwar Jyotirling Temple",
+    "timestamp": "2024-10-16 20:30:47",
+    "level": 19
+  },
+  {
+    "temple_id": 5,
+    "temple_name": "Trimbakeshwar Jyotirling Temple",
+    "timestamp": "2024-10-16 22:45:14",
+    "level": 34
+  },
+  {
+    "temple_id": 5,
+    "temple_name": "Trimbakeshwar Jyotirling Temple",
+    "timestamp": "2024-10-17 00:15:32",
+    "level": 50
+  },
+  {
+    "temple_id": 5,
+    "temple_name": "Trimbakeshwar Jyotirling Temple",
+    "timestamp": "2024-10-17 02:30:19",
+    "level": 65
+  },
+  {
+    "temple_id": 5,
+    "temple_name": "Trimbakeshwar Jyotirling Temple",
+    "timestamp": "2024-10-17 04:45:45",
+    "level": 77
+  },
+  {
+    "temple_id": 5,
+    "temple_name": "Trimbakeshwar Jyotirling Temple",
+    "timestamp": "2024-10-17 06:15:28",
+    "level": 89
+  },
+  {
+    "temple_id": 5,
+    "temple_name": "Trimbakeshwar Jyotirling Temple",
+    "timestamp": "2024-10-17 08:30:11",
+    "level": 98
+  },
+  {
+    "temple_id": 5,
+    "temple_name": "Trimbakeshwar Jyotirling Temple",
+    "timestamp": "2024-10-17 10:45:37",
+    "level": 24
+  },
+  {
+    "temple_id": 5,
+    "temple_name": "Trimbakeshwar Jyotirling Temple",
+    "timestamp": "2024-10-17 12:15:49",
+    "level": 38
+  }
 ]
