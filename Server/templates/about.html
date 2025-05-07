@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <title>Smart-Bin - About</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav>
+      <div class="logo">
+        <a href="#">Smart-bin</a>
+      </div>
+      <ul class="nav-links">
+        <li><a href="/home">Home</a></li>
+        <li><a href="/about" class="active">About</a></li>
+        <li><a href="/contact">Contact</a></li>
+        <li><a href="/">Dashboard</a></li>
+      </ul>
+    </nav>
+
+    <!-- About Hero Section -->
+    <section class="page-header">
+      <h1>About Smart-Bin</h1>
+      <p>Revolutionizing waste management for Nashik's sacred sites</p>
+    </section>
+
+    <!-- Mission Section -->
+    <section class="about-section">
+      <div class="about-content">
+        <h2>Our Mission</h2>
+        <p>
+          Smart-Bin was developed to address the unique waste management
+          challenges faced by Nashik Municipal Corporation. As a major
+          pilgrimage destination, Nashik welcomes millions of visitors each
+          year, especially during festivals like Kumbh Mela.
+        </p>
+        <p>
+          Our mission is to ensure that these sacred spaces remain clean and
+          welcoming for all visitors while helping the municipality operate more
+          efficiently and sustainably.
+        </p>
+      </div>
+      <div class="about-image">
+        <img
+          src="https://images.unsplash.com/photo-1604187351574-c75ca79f5807?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
+          alt="Nashik Temple"
+        />
+      </div>
+    </section>
+
+    <!-- Technology Section -->
+    <section class="tech-section">
+      <h2>Our Technology</h2>
+      <div class="tech-grid">
+        <div class="tech-card">
+          <div class="tech-icon">
+            <i class="fas fa-microchip"></i>
+          </div>
+          <h3>IoT Sensors</h3>
+          <p>
+            Ultrasonic sensors measure waste levels in real-time and transmit
+            data to our central server
+          </p>
+        </div>
+        <div class="tech-card">
+          <div class="tech-icon">
+            <i class="fas fa-cloud"></i>
+          </div>
+          <h3>Cloud Platform</h3>
+          <p>
+            Secure cloud infrastructure for reliable data storage and processing
+          </p>
+        </div>
+        <div class="tech-card">
+          <div class="tech-icon">
+            <i class="fas fa-tablet-alt"></i>
+          </div>
+          <h3>Dashboard Interface</h3>
+          <p>User-friendly monitoring system accessible to municipal staff</p>
+        </div>
+        <div class="tech-card">
+          <div class="tech-icon">
+            <i class="fas fa-cogs"></i>
+          </div>
+          <h3>Analytics Engine</h3>
+          <p>
+            Predictive algorithms optimize collection schedules based on
+            historical data
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Impact Section -->
+    <section class="impact-section">
+      <h2>Our Impact on Nashik</h2>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <h3>Problem</h3>
+            <p>
+              Overflow of garbage bins at temple sites and pilgrimage areas,
+              especially during peak tourist seasons
+            </p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <h3>Solution</h3>
+            <p>
+              Implementation of Smart-Bin system with real-time monitoring and
+              alerts
+            </p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <h3>Result</h3>
+            <p>
+              Cleaner public spaces, more efficient waste collection, and better
+              resource allocation
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+      <div class="stats-container">
+        <div class="stat-card">
+          <h3>30%</h3>
+          <p>Reduction in overflow incidents</p>
+        </div>
+        <div class="stat-card">
+          <h3>25%</h3>
+          <p>Decrease in operational costs</p>
+        </div>
+        <div class="stat-card">
+          <h3>40+</h3>
+          <p>Smart bins deployed</p>
+        </div>
+        <div class="stat-card">
+          <h3>24/7</h3>
+          <p>Real-time monitoring</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Future Plans -->
+    <section class="future-section">
+      <div class="future-content">
+        <h2>Future Roadmap</h2>
+        <p>
+          We're constantly improving our technology and expanding our coverage
+          to make Nashik cleaner and more efficient.
+        </p>
+        <ul class="future-list">
+          <li>Expansion to all major temples and tourist spots</li>
+          <li>Integration with municipal waste collection routes</li>
+          <li>Mobile app for citizens to report issues</li>
+          <li>Solar-powered bins with compaction capabilities</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Smart-Bin</h3>
+          <p>A project for Nashik Municipal Corporation</p>
+        </div>
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="/home">Home</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/contact">Contact</a></li>
+            <li><a href="/">Dashboard</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Contact Us</h3>
+          <p>Email: info@smart-bin.com</p>
+          <p>Phone: (91) 1234567890</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 Smart Dustbin System. All rights reserved.</p>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <title>Smart-Bin - Home</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav>
+      <div class="logo">
+        <a href="#">Smart-bin</a>
+      </div>
+      <ul class="nav-links">
+        <li><a href="/home" class="active">Home</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/contact">Contact</a></li>
+        <li><a href="/">Dashboard</a></li>
+      </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-content">
+        <h1>Smart Waste Management for Nashik</h1>
+        <p>Real-time monitoring solution for temples and pilgrimage sites</p>
+        <div class="hero-buttons">
+          <a href="/" class="btn btn-primary">View Dashboard</a>
+          <a href="/about" class="btn btn-secondary">Learn More</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+      <h2>How Smart-Bin Works</h2>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-trash-alt"></i>
+          </div>
+          <h3>Real-Time Monitoring</h3>
+          <p>
+            Smart sensors continuously track garbage levels in dustbins across
+            Nashik
+          </p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-chart-line"></i>
+          </div>
+          <h3>Data Analytics</h3>
+          <p>Track patterns and optimize waste collection schedules</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-bell"></i>
+          </div>
+          <h3>Timely Alerts</h3>
+          <p>Notifications when bins need emptying, preventing overflow</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-map-marked-alt"></i>
+          </div>
+          <h3>Strategic Locations</h3>
+          <p>Deployed at key pilgrimage sites and high-traffic areas</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits">
+      <div class="benefits-content">
+        <h2>Benefits for Nashik</h2>
+        <p>
+          As a major pilgrimage destination, Nashik faces unique waste
+          management challenges. Smart-Bin helps the municipality maintain
+          cleanliness and improve visitor experience.
+        </p>
+
+        <div class="benefits-list">
+          <div class="benefit-item">
+            <i class="fas fa-check-circle"></i>
+            <p>Cleaner temple surroundings for pilgrims</p>
+          </div>
+          <div class="benefit-item">
+            <i class="fas fa-check-circle"></i>
+            <p>Efficient resource allocation for NMC</p>
+          </div>
+          <div class="benefit-item">
+            <i class="fas fa-check-circle"></i>
+            <p>Reduced waste overflow during peak seasons</p>
+          </div>
+          <div class="benefit-item">
+            <i class="fas fa-check-circle"></i>
+            <p>Lower operational costs through optimized collection routes</p>
+          </div>
+        </div>
+      </div>
+      <div class="benefits-image">
+        <img
+          src="https://s7ap1.scene7.com/is/image/incredibleindia/1-trimbakeshwar-nashik-maharashtra-attr-hero?qlt=82&ts=1726669890287"
+          alt="Nashik Temple"
+        />
+      </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="cta">
+      <h2>Ready to see Smart-Bin in action?</h2>
+      <p>
+        View our real-time dashboard to monitor garbage levels at key locations
+        across Nashik.
+      </p>
+      <a href="/" class="btn btn-primary">View Dashboard</a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Smart-Bin</h3>
+          <p>A project for Nashik Municipal Corporation</p>
+        </div>
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="/home">Home</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/contact">Contact</a></li>
+            <li><a href="/">Dashboard</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Contact Us</h3>
+          <p>Email: info@smart-bin.com</p>
+          <p>Phone: (91) 1234567890</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 Smart Dustbin System. All rights reserved.</p>
+      </div>
+    </footer>
+  </body>
+</html>
