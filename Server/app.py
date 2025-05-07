@@ -77,10 +77,12 @@ def garbage_status():
         app.logger.error(f"Error reading JSON file: {e}")
         return jsonify({'status': 'error', 'message': str(e)}), 500
 
+# Only run the development server if script is executed directly
+# This won't run on Vercel's serverless environment
 if __name__ == '__main__':
     # Get port from environment variable or default to 5000
-    port = int(os.environ.get('PORT', 5001))
+    port = int(os.environ.get('PORT', 5000))
     # In production, you might want to use 0.0.0.0 to listen on all interfaces
-    host = os.environ.get('HOST', '0.0.0.0')
+    host = os.environ.get('HOST', '127.0.0.1')  # Changed from 0.0.0.0 to 127.0.0.1 for local development
     app.logger.info(f"Starting application on {host}:{port}")
     app.run(host=host, port=port)
